@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr> <!--breaks in page-->
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+
+                <div class="button">
+                    <div>
+                        <button type="button" id="one">6 people per 1 sheep</button>
+                        <span id="1" , class="hidden">Incorrect</span>
+                    </div>
+                    <div>
+                        <button type="button" id="two">3 people per 1 sheep</button>
+                        <span id="2" , class="hidden">Incorrect</span>
+                    </div>
+                    <div>
+                        <button type="button" id="three">1 person per 1 sheep</button>
+                        <p id="3" , class="hidden">Incorrect</p>
+                    </div>
+                    <div>
+                        <button type="button" id="four">1 person per 3 sheep</button>
+                        <p id="4" , class="hidden">Incorrect</p>
+                    </div>
+                    <div>
+                        <button type="button" id="five">1 person per 6 sheep</button>
+                        <p id="5" , class="hidden">Correct!</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <div>
+                    <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                    <form>
+                        <input type="text">
+                        <button id="freeQ">Check answer</button>
+
+                    </form>
+                    <p id="6" , class="hidden">test</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            // TODO: Add code to check answers to questions
+
+
+
+            let button1 = document.querySelector('#one');
+            button1.addEventListener('click', function() {
+                button1.style.backgroundColor = 'Red';
+                two.disabled = true;
+                three.disabled = true;
+                four.disabled = true;
+                five.disabled = true;
+                document.getElementById("1").className = "view";
+
+            });
+            let button2 = document.querySelector('#two');
+            button2.addEventListener('click', function() {
+                button2.style.backgroundColor = 'Red';
+                one.disabled = true;
+                three.disabled = true;
+                four.disabled = true;
+                five.disabled = true;
+                document.getElementById("2").className = "view";
+
+            });
+            let button3 = document.querySelector('#three');
+            button3.addEventListener('click', function() {
+                button3.style.backgroundColor = 'Red';
+                one.disabled = true;
+                two.disabled = true;
+                four.disabled = true;
+                five.disabled = true;
+                document.getElementById("3").className = "view";
+            });
+            let button4 = document.querySelector('#four');
+            button4.addEventListener('click', function() {
+                button4.style.backgroundColor = 'Red';
+                two.disabled = true;
+                three.disabled = true;
+                one.disabled = true;
+                five.disabled = true;
+                document.getElementById("4").className = "view";
+            });
+
+            let button5 = document.querySelector('#five');
+            button5.addEventListener('click', function() {
+                button5.style.backgroundColor = 'Green';
+                two.disabled = true;
+                three.disabled = true;
+                four.disabled = true;
+                one.disabled = true;
+                document.getElementById("5").className = "view";
+            });
+
+            let button6 = document.querySelector('#freeQ');
+            button6.addEventListener('click', function() {
+                event.preventDefault();
+                // to prevent the form from being submitted
+                let userInput = document.querySelector('input').value;
+                let inputField = document.querySelector('input');
+                if (userInput === "switzerland" || userInput == "Switzerland") {
+                    inputField.style.backgroundColor = "Green";
+                    inputField.disabled = true;
+                    document.getElementById("6").textContent = "Correct!";
+                    document.getElementById("6").className = "view";
+                } else {
+                    inputField.style.backgroundColor = "Red";
+                    inputField.disabled = true;
+                    freeQ.disabled = true;
+                    document.getElementById("6").textContent = "Incorrect";
+                    document.getElementById("6").className = "view";
+
+                }
+            })
+        </script>
+    </body>
+
+</html>
